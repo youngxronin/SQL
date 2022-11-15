@@ -72,7 +72,21 @@ WHERE price in (SELECT MAX(price)
                 FROM printer);
 
 -- Задание: 11 
-Найдите среднюю скорость ПК.
+-- Найдите среднюю скорость ПК.
 SELECT AVG(speed)
 FROM pc;
+
+-- Задание: 12
+-- Найдите среднюю скорость ПК-блокнотов, цена которых превышает 1000 дол.
+SELECT AVG(speed)
+FROM laptop
+WHERE price > 1000;
+
+-- Задание: 13 
+-- Найдите среднюю скорость ПК, выпущенных производителем A.
+SELECT avg(speed) AS avg_speed
+FROM pc INNER JOIN
+product ON product.model = pc.model
+WHERE maker LIKE 'A';
+
 
