@@ -99,3 +99,14 @@ GROUP BY author;
 SELECT author, MIN(price) AS Минимальная_цена, MAX(price) AS Максимальная_цена, AVG(price) AS Средняя_цена
 FROM book
 GROUP BY author;
+
+-- Задание 9.
+-- Вывести фамилию и инициалы автора, минимальную, максимальную и среднюю цену книг каждого автора . Вычисляемые столбцы назвать Минимальная_цена, 
+-- Максимальная_цена и Средняя_цена соответственно.
+
+--Решение:
+SELECT author, SUM(price * amount) AS Стоимость, 
+              ROUND((SUM(price * amount) * 0.18) / (1 + 0.18),2) AS НДС, 
+              ROUND(SUM(price * amount) / (1 + 18/100),2) AS Стоимость_без_НДС
+FROM book
+GROUP BY author;
